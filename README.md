@@ -10,7 +10,7 @@ This repository contains solutions to four programming problems, each implemente
 
 - visit(url): Pushes to backStack, clears forwardStack.
 
-= goBack(): Moves current URL from backStack to forwardStack.
+- goBack(): Moves current URL from backStack to forwardStack.
 
 - goForward(): Moves from forwardStack back to backStack.
 
