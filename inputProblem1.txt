@@ -1,0 +1,30 @@
+visit https://www.youtube.com/watch?v=QJie7dTvbjQ&list=RDGMEMXdNDEg4wQ96My0DhjI-cIg&index=5
+visit wikipedia.org
+visit youtube.com
+
+back
+back
+back
+
+forward
+forward
+forward
+
+back
+visit facebook.com
+forward
+
+visit linkedin.com
+visit github.com
+
+back
+back
+back
+back
+back
+
+forward
+forward
+forward
+forward
+forward
