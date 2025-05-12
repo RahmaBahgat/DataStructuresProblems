@@ -1,1 +1,58 @@
+{"name": "Alice", "severity": 80, "arrival_time": 1}
+{"name": "Bob", "severity": 90, "arrival_time": 2}
+{"name": "Charlie", "severity": 70, "arrival_time": 3}
 
+{"name": "David", "severity": 85, "arrival_time": 4}
+{"name": "Eve", "severity": 90, "arrival_time": 5}
+{"name": "Frank", "severity": 75, "arrival_time": 6}
+{"name": "Grace", "severity": 95, "arrival_time": 7}
+{"name": "Henry", "severity": 80, "arrival_time": 8}
+{"name": "Ivy", "severity": 70, "arrival_time": 9}
+{"name": "Jack", "severity": 100, "arrival_time": 10}
+
+{"name": "Mass1", "severity": 99, "arrival_time": 1}
+{"name": "Mass2", "severity": 98, "arrival_time": 2}
+{"name": "Mass3", "severity": 97, "arrival_time": 3}
+{"name": "Mass4", "severity": 96, "arrival_time": 4}
+{"name": "Mass5", "severity": 95, "arrival_time": 5}
+{"name": "Mass6", "severity": 94, "arrival_time": 6}
+{"name": "Mass7", "severity": 93, "arrival_time": 7}
+{"name": "Mass8", "severity": 92, "arrival_time": 8}
+{"name": "Mass9", "severity": 91, "arrival_time": 9}
+{"name": "Mass10", "severity": 90, "arrival_time": 10}
+{"name": "Mass11", "severity": 89, "arrival_time": 11}
+{"name": "Mass12", "severity": 88, "arrival_time": 12}
+{"name": "Mass13", "severity": 87, "arrival_time": 13}
+{"name": "Mass14", "severity": 86, "arrival_time": 14}
+{"name": "Mass15", "severity": 85, "arrival_time": 15}
+{"name": "Mass16", "severity": 84, "arrival_time": 16}
+{"name": "Mass17", "severity": 83, "arrival_time": 17}
+{"name": "Mass18", "severity": 82, "arrival_time": 18}
+{"name": "Mass19", "severity": 81, "arrival_time": 19}
+{"name": "Mass20", "severity": 80, "arrival_time": 20}
+
+{"name": "Critical1", "severity": 100, "arrival_time": 1}
+{"name": "Critical2", "severity": 100, "arrival_time": 2}
+{"name": "Critical3", "severity": 100, "arrival_time": 3}
+
+{"name": "EarlyLow", "severity": 10, "arrival_time": 1}
+{"name": "LateHigh", "severity": 90, "arrival_time": 10}
+
+{"name": "SameSev1", "severity": 50, "arrival_time": 1}
+{"name": "SameSev2", "severity": 50, "arrival_time": 2}
+{"name": "SameSev3", "severity": 50, "arrival_time": 3}
+
+{"name": "Reverse1", "severity": 30, "arrival_time": 3}
+{"name": "Reverse2", "severity": 20, "arrival_time": 2}
+{"name": "Reverse3", "severity": 10, "arrival_time": 1}
+
+{"name": "SinglePatient", "severity": 75, "arrival_time": 1}
+
+
+
+
+{"name": "Random1", "severity": 45, "arrival_time": 1}
+{"name": "Random2", "severity": 85, "arrival_time": 2}
+{"name": "Random3", "severity": 25, "arrival_time": 3}
+{"name": "Random4", "severity": 65, "arrival_time": 4}
+{"name": "Random5", "severity": 95, "arrival_time": 5}
