@@ -1,114 +1,148 @@
 #include <iostream>
 #include <fstream>
-#include <vector>
 #include <string>
-#include <sstream>
-#include <algorithm>
 
 using namespace std;
 
-// Stores patient data
+// Constants to define limits
+const int MAX_PATIENTS = 1000;
+const int MAX_TEST_CASES = 10;
+const int MAX_PATIENTS_PER_TEST = 100;
+
+// Structure to store patient data
 struct Patient {
-    string name;        // Patient name
-    int severity;       // Condition severity (higher = worse)
-    int arrival_time;   // Arrival order (lower = earlier)
+    string name;
+    int severity{};         // Higher severity = higher priority
+    int arrival_time{};
 };
 
-// Priority queue implementation
+// Custom MaxHeap class (priority queue)
 class MaxHeap {
 private:
-    vector<Patient> heap;  // Stores patients in heap order
+    Patient heap[MAX_PATIENTS];   // Static array to store heap
+    int size;                     // Current number of elements in the heap
 
-    // Compare two patients' priority
+    // Determines which patient has higher priority
     bool hasHigherPriority(const Patient& a, const Patient& b) {
         if (a.severity > b.severity) return true;
         if (a.severity == b.severity) return a.arrival_time < b.arrival_time;
         return false;
     }
 
-    // Fix heap after insertion (bubble up)
+    // Swaps two Patient objects
+    void swapPatients(Patient& a, Patient& b) {
+        Patient temp = a;
+        a = b;
+        b = temp;
+    }
+
+    // Maintains max-heap property from bottom to top
     void heapifyUp(int index) {
-        if (index == 0) return;
+        if (index == 0) return;  // Root node
         int parent = (index - 1) / 2;
         if (hasHigherPriority(heap[index], heap[parent])) {
-            swap(heap[index], heap[parent]);
-            heapifyUp(parent);
+            swapPatients(heap[index], heap[parent]);
+            heapifyUp(parent);  // Recur up the tree
         }
     }
 
-    // Fix heap after extraction (bubble down)
+    // Maintains max-heap property from top to bottom
     void heapifyDown(int index) {
         int left = 2 * index + 1;
         int right = 2 * index + 2;
         int largest = index;
 
-        if (left < heap.size() && hasHigherPriority(heap[left], heap[largest])) {
+        if (left < size && hasHigherPriority(heap[left], heap[largest])) {
             largest = left;
         }
-        if (right < heap.size() && hasHigherPriority(heap[right], heap[largest])) {
+        if (right < size && hasHigherPriority(heap[right], heap[largest])) {
             largest = right;
         }
 
         if (largest != index) {
-            swap(heap[index], heap[largest]);
-            heapifyDown(largest);
+            swapPatients(heap[index], heap[largest]);
+            heapifyDown(largest);  // Recur down the tree
         }
     }
 
 public:
-    // Add new patient
+    // Constructor to initialize heap size
+    MaxHeap() : size(0) {}
+
+    // Inserts a patient into the heap
     void insert(const Patient& patient) {
-        heap.push_back(patient);
-        heapifyUp(heap.size() - 1);
+        if (size >= MAX_PATIENTS) {
+            cerr << "Heap full, cannot insert more patients!" << endl;
+            return;
+        }
+        heap[size] = patient;
+        heapifyUp(size);
+        size++;
     }
 
-    // Remove and return top priority patient
+    // Extracts the patient with the highest priority
     Patient extractMax() {
-        if (heap.empty()) throw runtime_error("Heap is empty");
-        Patient maxPatient = heap[0];
-        heap[0] = heap.back();
-        heap.pop_back();
-        if (!heap.empty()) heapifyDown(0);
+        if (size == 0) {
+            throw runtime_error("Heap is empty");
+        }
+
+        Patient maxPatient = heap[0];           // Root is the max
+        heap[0] = heap[size - 1];               // Replace root with last element
+        size--;                                 // Reduce size
+        if (size > 0) {
+            heapifyDown(0);                     // Restore heap property
+        }
         return maxPatient;
     }
 
-    // Print current heap contents
+    // Prints current heap contents (names only)
     void printHeap(ostream& out) const {
         out << "Heap: [";
-        for (size_t i = 0; i < heap.size(); ++i) {
+        for (int i = 0; i < size; ++i) {
             out << heap[i].name;
-            if (i != heap.size() - 1) out << ", ";
+            if (i != size - 1) out << ", ";
         }
         out << "]" << endl;
     }
 
-    // Check if heap is empty
+    // Checks if heap is empty
     bool isEmpty() const {
-        return heap.empty();
+        return size == 0;
     }
 };
 
-// Read test cases from file
-vector<vector<Patient>> readTestCasesFromFile(const string& filename) {
+// Reads test cases from a file into a 2D array of patients
+void readTestCasesFromFile(const string& filename, Patient testCases[MAX_TEST_CASES][MAX_PATIENTS_PER_TEST],
+                           int testCaseSizes[MAX_TEST_CASES], int& numTestCases) {
     ifstream file(filename);
-    vector<vector<Patient>> testCases;
-    vector<Patient> currentTestCase;
-
     if (!file.is_open()) {
         cerr << "Error opening file: " << filename << endl;
-        return testCases;
+        numTestCases = 0;
+        return;
     }
 
+    numTestCases = 0;
+    int currentPatient = 0;
     string line;
+
+    // Read line by line
     while (getline(file, line)) {
         if (line.empty()) {
-            if (!currentTestCase.empty()) {
-                testCases.push_back(currentTestCase);
-                currentTestCase.clear();
+            // Blank line indicates end of a test case
+            if (currentPatient > 0) {
+                testCaseSizes[numTestCases] = currentPatient;
+                numTestCases++;
+                currentPatient = 0;
             }
             continue;
         }
 
+        if (numTestCases >= MAX_TEST_CASES || currentPatient >= MAX_PATIENTS_PER_TEST) {
+            cerr << "Warning: Exceeded maximum test cases or patients per test case" << endl;
+            continue;
+        }
+
+        // Parse patient data from line (assumes structured text input)
         Patient p;
         size_t nameStart = line.find("\"name\": \"") + 9;
         p.name = line.substr(nameStart, line.find("\"", nameStart) - nameStart);
@@ -119,41 +153,52 @@ vector<vector<Patient>> readTestCasesFromFile(const string& filename) {
         size_t timeStart = line.find("\"arrival_time\": ") + 16;
         p.arrival_time = stoi(line.substr(timeStart, line.find("}", timeStart) - timeStart));
 
-        currentTestCase.push_back(p);
+        testCases[numTestCases][currentPatient] = p;
+        currentPatient++;
     }
 
-    if (!currentTestCase.empty()) {
-        testCases.push_back(currentTestCase);
+    // Final test case (in case file doesn't end with blank line)
+    if (currentPatient > 0) {
+        testCaseSizes[numTestCases] = currentPatient;
+        numTestCases++;
     }
 
     file.close();
-    return testCases;
 }
 
-// Process one test case
-void processTestCase(const vector<Patient>& patients, int testCaseNumber, ofstream& outFile) {
+// Processes a single test case: inserts patients and simulates treatment order
+void processTestCase(Patient patients[], int count, int testCaseNumber, ofstream& outFile) {
     MaxHeap priorityQueue;
 
     outFile << "\n=== Test Case #" << testCaseNumber << " ===" << endl;
     outFile << "Inserting patients:" << endl;
 
-    for (const auto& patient : patients) {
-        outFile << "Inserting: " << patient.name << endl;
-        priorityQueue.insert(patient);
+    // Insert all patients into priority queue
+    for (int i = 0; i < count; ++i) {
+        outFile << "Inserting: " << patients[i].name << endl;
+        priorityQueue.insert(patients[i]);
         priorityQueue.printHeap(outFile);
     }
 
+    // Extract and print treatment order
     outFile << "\nTreatment Order:" << endl;
     while (!priorityQueue.isEmpty()) {
         outFile << "Treating: " << priorityQueue.extractMax().name << endl;
     }
 }
 
+// Main function: reads from file, processes test cases, writes output
 int main() {
     string inputFilename = "patients.txt";
     string outputFilename = "output.txt";
 
-    vector<vector<Patient>> testCases = readTestCasesFromFile(inputFilename);
+    // Data structures to hold multiple test cases
+    Patient testCases[MAX_TEST_CASES][MAX_PATIENTS_PER_TEST];
+    int testCaseSizes[MAX_TEST_CASES];
+    int numTestCases = 0;
+
+    // Load patients from input file
+    readTestCasesFromFile(inputFilename, testCases, testCaseSizes, numTestCases);
     ofstream outFile(outputFilename);
 
     if (!outFile.is_open()) {
@@ -161,12 +206,14 @@ int main() {
         return 1;
     }
 
-    if (testCases.empty()) {
-        outFile << "The input file is empty." << endl;
-    }
-
-    for (size_t i = 0; i < testCases.size(); ++i) {
-        processTestCase(testCases[i], i + 1, outFile);
+    // Handle case with no test cases
+    if (numTestCases == 0) {
+        outFile << "No test cases found in input file." << endl;
+    } else {
+        // Process each test case one by one
+        for (int i = 0; i < numTestCases; ++i) {
+            processTestCase(testCases[i], testCaseSizes[i], i + 1, outFile);
+        }
     }
 
     outFile.close();
