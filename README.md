@@ -65,44 +65,49 @@ The application reads user actions (e.g., add, delete, search) from an input fil
 
 
 ## Problem 3: Minimum Segment Flips
-###Overview:
-This problem involves finding the minimum number of segment flips required to convert a binary array into an array of all 1s. Each flip toggles (0 → 1 or 1 → 0) a continuous segment of length k in the array. If it is impossible to convert the entire array to all 1s using such flips, the result should be -1.
 
-###Approach:
-The solution uses a custom implemented Queue data structure (based on linked nodes) to help manage flipping operations efficiently.
+### Overview:
 
-The flipping is done greedily from left to right: whenever a 0 is encountered at position i, flip the segment starting at i of length k.
+- This problem involves finding the minimum number of segment flips required to convert a binary array into an array of all 1s.
+- Each flip toggles (0 → 1 or 1 → 0) a continuous segment of length `k` in the array.
+- If it is impossible to convert the entire array to all 1s using such flips, the result should be `-1`.
 
-The code manually toggles the bits in the segment (0 to 1 and 1 to 0) using a helper flip function.
+### Approach:
 
-After attempting all possible flips, the array is checked to confirm if all bits are 1.
+- The solution uses a custom-implemented `Queue` data structure (based on linked nodes) to manage flipping operations.
+- A greedy approach is used: iterate through the array from left to right, and whenever a `0` is found at position `i`, flip the segment starting at `i` of length `k`.
+- A helper `flip()` function toggles each bit in the segment.
+- After performing all possible flips, the array is checked to confirm if all bits are `1`.
+- If yes, the function returns the number of flips performed; otherwise, it returns `-1`.
 
-If all are 1, returns the count of flips performed; otherwise, returns -1.
+### Data Structures:
 
-###Data Structures:
-Queue: implemented using a linked list with Node class. It supports enqueue, dequeue, checking if empty, and getting the front element.
+- **Queue**: Implemented using a linked list with a `Node` class.
+  - Supports `enqueue`, `dequeue`, `isEmpty`, and `getFront` operations.
+  - The queue helps track positions involved in flip operations, although it's mainly illustrative in this implementation.
 
-The queue here helps track the positions involved in flipping operations (though in this code snippet, the queue usage seems minimal and mainly for demonstration).
+### Input/Output:
 
-###Input/Output:
-The program reads input from a file named inputProblem3.txt.
+- **Input File**: `inputProblem3.txt`
+  - Each line contains a binary array in square brackets, followed by an integer `k`.
+  - Example: `[0 0 1 0] 2`
 
-Each line contains a binary array in brackets, e.g., [0 1 0 1], followed by an integer k.
+- **Output File**: `output3.txt`
+  - For each input line, outputs the minimum number of flips needed, or `-1` if not possible.
 
-Outputs the minimum number of flips needed or -1 if not possible.
+### Example:
+**Input:**
+[0 0 0 1 0] 3
+[1 1 1] 2
 
-Results are written to output3.txt.
+**Output:**
+2
+0
 
-## Problem 4: Emergency Room Max-Heap
 
-## Notes
+### Compilation & Execution:
 
-- Memory Management: All code manually manages memory (no memory leaks).
-
-- Input Handling: Each problem reads from a file.
-
-- STL Replacement: Custom implementations for stacks, trees, heaps, etc.
-
-## Test Cases
-Sample inputs are provided in respective inputProblemX.txt files. Modify these to test different scenarios.
+```bash
+g++ Problem3.cpp -o Problem3
+./Problem3
 
