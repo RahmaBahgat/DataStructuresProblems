@@ -1,7 +1,14 @@
-// About: Minimum flips to make binary array all ones using queue
-// Related file: inputProblem3.txt
-// Author: Doha yasser
-// Id: 20231089
+/* File: Problem3.cpp
+ Authors: Doha Yasser
+ ID: 20231089
+ Section: S16
+ GitHub Link: https://github.com/Doha-yasser/DS-implementation
+ ---------------------------------------
+ NOTE:
+ You need to add the file "inputProblem3" to the cmake file to run the test cases.
+ Also the output will be in a file called "outputProblem3".
+---------------------------------------
+*/
 
 #include <iostream>
 #include <fstream>
