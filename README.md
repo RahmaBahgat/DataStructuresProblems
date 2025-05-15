@@ -112,10 +112,6 @@ g++ Problem3.cpp -o Problem3
 ./Problem3
 ```
 
-Sure! Here's a continuation of the README section for **Problem 4**, based on the provided C++ code involving a **custom Max Heap** for patient triage simulation:
-
----
-
 ## Problem 4: Patient Triage System using Max Heap
 
 ### Overview:
