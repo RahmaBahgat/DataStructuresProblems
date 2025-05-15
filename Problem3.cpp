@@ -1,5 +1,5 @@
 // About: Minimum flips to make binary array all ones using queue
-// Related file: input2.txt
+// Related file: inputProblem3.txt
 // Author: Doha yasser
 // Id: 20231089
 
@@ -213,7 +213,7 @@ int main()
     // int result = minFlip(arr, 8,k);
     // cout << "Min flipped: " << result << endl;
 
-    readFromFile("input3.txt");
+    readFromFile("inputProblem3.txt");
 }
 
 // correct out
