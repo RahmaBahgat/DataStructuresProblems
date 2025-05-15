@@ -110,4 +110,66 @@ The application reads user actions (e.g., add, delete, search) from an input fil
 ```bash
 g++ Problem3.cpp -o Problem3
 ./Problem3
+```
 
+Sure! Here's a continuation of the README section for **Problem 4**, based on the provided C++ code involving a **custom Max Heap** for patient triage simulation:
+
+---
+
+## Problem 4: Patient Triage System using Max Heap
+
+### Overview:
+
+This problem simulates a hospital's patient triage system using a custom **Max Heap** implementation (without STL). Patients are prioritized based on **severity** (higher is more urgent), and in the case of a tie, by **earlier arrival time**. The solution processes multiple test cases, each consisting of a set of patients, and outputs the treatment order.
+
+### Approach:
+
+* A static array-based **MaxHeap** is used to simulate a priority queue.
+* Each `Patient` contains:
+
+  * `name` (string)
+  * `severity` (int)
+  * `arrival_time` (int)
+* The heap maintains the max-heap property where the most critical patient (based on severity and arrival time) is always at the top.
+* Patients are inserted into the heap, and then extracted one by one to simulate treatment in the correct order.
+* Patients are read from a structured input file that resembles JSON-like entries (e.g., `"name": "John", "severity": 5, "arrival_time": 2`).
+
+### Features:
+
+* **Custom MaxHeap**:
+
+  * Array-based.
+  * `insert()`: Maintains heap via `heapifyUp`.
+  * `extractMax()`: Removes the top patient and restores heap via `heapifyDown`.
+  * No use of STL `priority_queue`.
+* **Input Parsing**:
+
+  * Multiple test cases supported.
+  * Each test case separated by a blank line.
+* **Output**:
+
+  * Displays heap content after each insertion.
+  * Shows the order in which patients are treated.
+
+### Code Structure:
+
+* **`Patient` struct**: Stores patient data.
+* **`MaxHeap` class**: Implements all heap operations.
+* **`readTestCasesFromFile()`**: Reads and parses structured test cases from `patients.txt`.
+* **`processTestCase()`**: Simulates inserting patients and extracting them for treatment.
+* **`main()`**: Orchestrates reading, processing, and writing results to `output.txt`.
+
+### Input File Format: `inputProblem4.txt`
+
+Each block (separated by a blank line) is a separate test case.
+
+### Output File: `outputProblem4.txt`
+
+The output includes logs of each insertion and extraction for each test case.
+
+### Compilation & Execution:
+
+```bash
+g++ Problem4.cpp -o Problem4
+./Problem4
+```
