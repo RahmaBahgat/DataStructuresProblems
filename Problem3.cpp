@@ -12,7 +12,6 @@
 
 #include <iostream>
 #include <fstream>
-#include <sstream>
 using namespace std;
 
 int minFlip(int *arr, int n, int k);
@@ -20,7 +19,7 @@ int minFlip(int *arr, int n, int k);
 void readFromFile(string fileName)
 {
     ifstream input(fileName);
-    ofstream output("output3.txt");
+    ofstream output("outputProblem3.txt");
 
     if (!input.is_open())
     {
@@ -209,7 +208,6 @@ int flip(int val)
  }
 
 
-
 int main()
 {
 
@@ -233,4 +231,3 @@ int main()
 //-1
 //1
 //-1
-
