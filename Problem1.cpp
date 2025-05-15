@@ -115,15 +115,15 @@ public:
 
 int main() {
     ifstream inputFile("inputProblem1.txt");
-    ofstream outputFile("output.txt");
+    ofstream outputFile("outputProblem1.txt");
 
     if (!inputFile.is_open()) {
-        cerr << "Error: Could not open input.txt" << endl;
+        cerr << "Error: Could not open inputProblem1.txt" << endl;
         return 1;
     }
 
     if (!outputFile.is_open()) {
-        cerr << "Error: Could not open output.txt" << endl;
+        cerr << "Error: Could not open outputProblem1.txt" << endl;
         return 1;
     }
 
