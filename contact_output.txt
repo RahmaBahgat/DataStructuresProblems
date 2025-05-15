@@ -1,0 +1,198 @@
+
+Address Book Application
+------------------------
+1. Add New Contact
+2. Search for Contact
+3. Delete Contact
+4. List All Contacts (Sorted by ID)
+5. Display Current Tree Structure
+6. Exit
+Enter operation: 1
+Enter unique ID (integer): 50
+Enter name: Alice Johnson
+Enter phone: 0101111222
+Enter email: alice@example.com
+
+Address Book Application
+------------------------
+1. Add New Contact
+2. Search for Contact
+3. Delete Contact
+4. List All Contacts (Sorted by ID)
+5. Display Current Tree Structure
+6. Exit
+Enter operation: 1
+Enter unique ID (integer): 30
+Enter name: Bob Smith
+Enter phone: 0102222333
+Enter email: bob@example.com
+
+Address Book Application
+------------------------
+1. Add New Contact
+2. Search for Contact
+3. Delete Contact
+4. List All Contacts (Sorted by ID)
+5. Display Current Tree Structure
+6. Exit
+Enter operation: 1
+Enter unique ID (integer): 70
+Enter name: Charlie Davis
+Enter phone: 0103333444
+Enter email: charlie@example.com
+
+Address Book Application
+------------------------
+1. Add New Contact
+2. Search for Contact
+3. Delete Contact
+4. List All Contacts (Sorted by ID)
+5. Display Current Tree Structure
+6. Exit
+Enter operation: 1
+Enter unique ID (integer): 20
+Enter name: Diana Prince
+Enter phone: 0104444555
+Enter email: diana@example.com
+
+Address Book Application
+------------------------
+1. Add New Contact
+2. Search for Contact
+3. Delete Contact
+4. List All Contacts (Sorted by ID)
+5. Display Current Tree Structure
+6. Exit
+Enter operation: 1
+Enter unique ID (integer): 40
+Enter name: Ethan Hunt
+Enter phone: 0105555666
+Enter email: ethan@example.com
+
+Address Book Application
+------------------------
+1. Add New Contact
+2. Search for Contact
+3. Delete Contact
+4. List All Contacts (Sorted by ID)
+5. Display Current Tree Structure
+6. Exit
+Enter operation: 1
+Enter unique ID (integer): 60
+Enter name: Fiona Glenanne
+Enter phone: 0106666777
+Enter email: fiona@example.com
+
+Address Book Application
+------------------------
+1. Add New Contact
+2. Search for Contact
+3. Delete Contact
+4. List All Contacts (Sorted by ID)
+5. Display Current Tree Structure
+6. Exit
+Enter operation: 1
+Enter unique ID (integer): 80
+Enter name: George Clark
+Enter phone: 0107777888
+Enter email: george@example.com
+
+Address Book Application
+------------------------
+1. Add New Contact
+2. Search for Contact
+3. Delete Contact
+4. List All Contacts (Sorted by ID)
+5. Display Current Tree Structure
+6. Exit
+Enter operation: 2
+Enter ID to search: 40
+
+Error: Contact not found!
+
+Address Book Application
+------------------------
+1. Add New Contact
+2. Search for Contact
+3. Delete Contact
+4. List All Contacts (Sorted by ID)
+5. Display Current Tree Structure
+6. Exit
+Enter operation: 2
+Enter ID to search: 99
+
+Error: Contact not found!
+
+Address Book Application
+------------------------
+1. Add New Contact
+2. Search for Contact
+3. Delete Contact
+4. List All Contacts (Sorted by ID)
+5. Display Current Tree Structure
+6. Exit
+Enter operation: 3
+Enter ID to delete: 30
+
+Contact deleted successfully.
+
+Contact deleted successfully.
+
+Address Book Application
+------------------------
+1. Add New Contact
+2. Search for Contact
+3. Delete Contact
+4. List All Contacts (Sorted by ID)
+5. Display Current Tree Structure
+6. Exit
+Enter operation: 3
+Enter ID to delete: 99
+Error: Contact not found!
+
+Address Book Application
+------------------------
+1. Add New Contact
+2. Search for Contact
+3. Delete Contact
+4. List All Contacts (Sorted by ID)
+5. Display Current Tree Structure
+6. Exit
+Enter operation: 4
+
+Contacts in Address Book (sorted by ID):
+ID: 20, Name: Diana Prince, Phone: 0104444555, Email: diana@example.com
+ID: 40, Name: Ethan Hunt, Phone: 0105555666, Email: ethan@example.com
+ID: 50, Name: Alice Johnson, Phone: 0101111222, Email: alice@example.com
+ID: 60, Name: Fiona Glenanne, Phone: 0106666777, Email: fiona@example.com
+ID: 70, Name: Charlie Davis, Phone: 0103333444, Email: charlie@example.com
+ID: 80, Name: George Clark, Phone: 0107777888, Email: george@example.com
+
+Address Book Application
+------------------------
+1. Add New Contact
+2. Search for Contact
+3. Delete Contact
+4. List All Contacts (Sorted by ID)
+5. Display Current Tree Structure
+6. Exit
+Enter operation: 5
+
+Current AVL Tree:
+                80
+          70
+                60
+    50
+          40
+                20
+
+Address Book Application
+------------------------
+1. Add New Contact
+2. Search for Contact
+3. Delete Contact
+4. List All Contacts (Sorted by ID)
+5. Display Current Tree Structure
+6. Exit
+Enter operation: 6
+Exiting Address Book. Goodbye!

@@ -1,0 +1,59 @@
+1
+50
+Alice Johnson
+0101111222
+alice@example.com
+
+1
+30
+Bob Smith
+0102222333
+bob@example.com
+
+1
+70
+Charlie Davis
+0103333444
+charlie@example.com
+
+1
+20
+Diana Prince
+0104444555
+diana@example.com
+
+1
+40
+Ethan Hunt
+0105555666
+ethan@example.com
+
+1
+60
+Fiona Glenanne
+0106666777
+fiona@example.com
+
+1
+80
+George Clark
+0107777888
+george@example.com
+
+2
+40
+
+2
+99
+
+3
+30
+
+3
+99
+
+4
+
+5
+
+6
