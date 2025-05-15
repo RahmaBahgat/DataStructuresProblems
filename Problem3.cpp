@@ -1,5 +1,5 @@
 // About: Minimum flips to make binary array all ones using queue
-// Related file: input2.txt && output3.txt
+// Related file: input2.txt
 // Author: Doha yasser
 // Id: 20231089
 
