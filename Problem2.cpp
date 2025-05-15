@@ -192,7 +192,7 @@ void printTree(Contact* root, int space = 0, int indent = 6) {
 }
 
 int main() {
-    ifstream testInput("contact_input.txt");
+    ifstream testInput("inputProblem2.txt");
     if (!testInput) {
         cerr << "Error: Input file 'contact_input.txt' not found.\n";
         return 1;
