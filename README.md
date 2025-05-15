@@ -32,6 +32,38 @@ g++ Problem1.cpp -o Problem1
 
 ## Problem 2: AVL Tree Address Book
 
+### Overview:
+This problem implements a contact management system (address book) using an **AVL Tree** (a self-balancing binary search tree). Each contact contains an ID, name, phone number, and email address. The system supports insert, search, delete, and list operations, with all contacts kept balanced by the AVL tree properties.
+
+The application reads user actions (e.g., add, delete, search) from an input file (`inputProblem2.txt`) and writes all output (including tree structure, errors, and search results) to an output file (`outputProblem2.txt`).
+
+### Approach:
+- The contacts are stored in an AVL tree ordered by unique ID.
+- The AVL Tree auto-balances itself on every insert and delete to maintain O(log n) time complexity.
+- Each node contains:
+  - `id`, `name`, `phone`, `email`
+  - Left and right pointers
+  - Height for balancing
+
+- **Functions Implemented**:
+  - `insert()`: Adds a new contact while maintaining balance.
+  - `deleteContact()`: Deletes a contact and re-balances the tree.
+  - `search()`: Looks for a contact by ID.
+  - `listContacts()`: In-order traversal (prints sorted contacts).
+  - `printTree()`: Prints the current tree structure rotated 90 degrees.
+  - `checkBalance()`, `leftRotate()`, `rightRotate()`: Maintain AVL properties.
+
+- Input/output redirection is used to read from a file instead of manual input:
+  - If the input file is not found, the program displays an error and exits.
+
+### Code Structure:
+- `Contact`: Struct representing each node in the AVL tree.
+- Functions for AVL insertions, deletions, rotations, and utility operations.
+- Main function displays a menu and processes commands from `inputProblem2.txt`.
+
+### Input File Format: inputProblem2.txt
+
+
 ## Problem 3: Minimum Segment Flips
 ###Overview:
 This problem involves finding the minimum number of segment flips required to convert a binary array into an array of all 1s. Each flip toggles (0 → 1 or 1 → 0) a continuous segment of length k in the array. If it is impossible to convert the entire array to all 1s using such flips, the result should be -1.

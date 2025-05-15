@@ -6,8 +6,8 @@
  GitHub Link: https://github.com/Doha-yasser/DS-implementation
  ---------------------------------------
  NOTE:
- You need to add the file "contect_input" to the cmake file to run the test cases.
- Also the output will be in a file called "contact_output".
+ You need to add the file "inputproblem2" to the cmake file to run the test cases.
+ Also the output will be in a file called "outputproblem2".
 ---------------------------------------
 */
 
@@ -198,8 +198,8 @@ int main() {
         return 1;
     }
     testInput.close();
-    freopen("contact_input.txt", "r", stdin);   // Redirect cin
-    freopen("contact_output.txt", "w", stdout); // Redirect cout
+    freopen("inputProblem2.txt", "r", stdin);   // Redirect cin
+    freopen("outputProblem2.txt", "w", stdout); // Redirect cout
 
     Contact* root = nullptr;
     int choice;
