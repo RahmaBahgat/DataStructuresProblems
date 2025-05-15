@@ -189,8 +189,8 @@ void processTestCase(Patient patients[], int count, int testCaseNumber, ofstream
 
 // Main function: reads from file, processes test cases, writes output
 int main() {
-    string inputFilename = "patients.txt";
-    string outputFilename = "output.txt";
+    string inputFilename = "inputProblem4.txt";
+    string outputFilename = "outputProblem4.txt";
 
     // Data structures to hold multiple test cases
     Patient testCases[MAX_TEST_CASES][MAX_PATIENTS_PER_TEST];
