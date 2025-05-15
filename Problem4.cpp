@@ -1,3 +1,15 @@
+/* File: Problem4.cpp
+ Authors: Rahma Bahgat
+ ID: 20231056
+ Section: S16
+ GitHub Link: https://github.com/Doha-yasser/DS-implementation
+ ---------------------------------------
+ NOTE:
+ You need to add the file "inputProblem4" to the cmake file to run the test cases.
+ Also the output will be in a file called "outputProblem4".
+---------------------------------------
+*/
+
 #include <iostream>
 #include <fstream>
 #include <string>
